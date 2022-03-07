@@ -4,7 +4,16 @@
 <head>
     <title>Invitation Page</title>
     <link rel="stylesheet" type="text/css" href="css/main.css" />
-    <script type="text/javascript" src="script.js"></script>
+   <script>
+   function bigImg(BImg){
+       BImg.style.height = "400px";
+       BImg.style.width = "400px";
+   }
+   function normalImg(SImg){
+       SImg.style.height = "200px";
+       SImg.style.width = "200px";
+   }
+   </script>
         </head>
 
 <body>
@@ -30,30 +39,30 @@
     </header>
     <section id="gallery">
 
-<div class="gallery">
+<div class="gallery" onmouseover ="bigImg(this)" onmouseout="normalImg(this)" border= "0">
   <a target="_blank" href="images/firefighter.jpg">
-   <img onmouseenter="enlarge(this)" onmouseleave="reduce(this)" src="images/firefighter.jpg" alt="firefighter" width="200" height="100">
+   <img  src="images/firefighter.jpg" alt="firefighter" width="200" height="100">
         </a>
   <div class="desc">Add a description of the image here</div>
 </div>
 
-<div class="gallery">
+<div class="gallery" onmouseover ="bigImg(this)" onmouseout ="normalImg(this)" border="0">
   <a target="_blank" href="images/work.jpg">
-    <img onmouseenter="enlarge(this)" onmouseleave="reduce(this)" src="images/work.jpg" alt="work" width="200" height="100">
+    <img  src="images/work.jpg" alt="work" width="200" height="100">
       </a>
   <div class="desc">Add a description of the image here</div>
 </div>
 
-<div class="gallery">
+<div class="gallery" onmouseover ="bigImg(this)" onmouseout ="normalImg(this)" border="0">
   <a target="_blank" href="images/silhouette.jpg">
-<img onmouseenter="enlarge(this)" onmouseleave="reduce(this)" src="images/silhouette.jpg" alt="silhouette" width="200" height="100">
+<img  src="images/silhouette.jpg" alt="silhouette" width="200" height="100">
 </a>
   <div class="desc">Add a description of the image here</div>
 </div>
 
-<div class="gallery">
+<div class="gallery" onmouseover ="bigImg(this)" onmouseout ="normalImg(this)" border ="0" >
   <a target="_blank" href="images/event.jpg">
-   <img onmouseenter="enlarge(this)" onmouseleave="reduce(this)" src="images/event.jpg" alt="event" width="200" height="100">
+   <img src="images/event.jpg" alt="event" width="200" height="100">
          </a>
   <div class="desc">Add a description of the image here</div>
 </div>
