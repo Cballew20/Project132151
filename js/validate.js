@@ -14,7 +14,7 @@ function validate() {
 
 
     if (username == "") {
-        document.getElementById('erroruserName').innerHTML = 'Username can't be empty.';
+        document.getElementById('erroruserName').innerHTML = "Username can't be empty.";
         return false;
     } 
 
