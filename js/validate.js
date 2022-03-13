@@ -9,7 +9,7 @@ function validate() {
     var lastname = document.getElementsByName('lastName')[0].value;
     var email = document.getElementsByName('email')[0].value;
     var phoneNumber = document.getElementsByName('phoneNumber')[0].value;
-    var newsletter = document.getElementsByName('signUpNewsletter');
+    var signUpNewsletter = document.getElementsByName('signUpNewsletter');
 
 
 
@@ -23,12 +23,12 @@ function validate() {
         return false;
     }
 
-    if (password.length < 8  password == "") {
+    if (password.length < 8 || password == "") {
         document.getElementById('errorpassword').innerHTML = 'Password length should be atleast 8.';
         return false;
     }
 
-    if (vpassword.length < 8  vpassword == "") {
+    if (vpassword.length < 8 || vpassword == "") {
         document.getElementById('errorpasswordVerify').innerHTML = 'Confirm Password length should be atleast 8.';
         return false;
     }
@@ -39,7 +39,7 @@ function validate() {
     }
 
     if (firstname == '') {
-        document.getElementById('errorfirstName').innerHTML = 'First Name can't be empty.';
+        document.getElementById('errorfirstName').innerHTML = 'First Name cannot be empty.';
         return false;
     }
 
@@ -49,7 +49,7 @@ function validate() {
     }
 
     if (lastname == '') {
-        document.getElementById('errorlastName').innerHTML = 'Last Name can't be empty.';
+        document.getElementById('errorlastName').innerHTML = 'Last Name cannot be empty.';
         return false;
     }
 
@@ -59,7 +59,7 @@ function validate() {
     }
 
     if (email == '') {
-        document.getElementById('erroremail').innerHTML = 'Email can't be empty.';
+        document.getElementById('erroremail').innerHTML = 'Email cannot be empty.';
         return false;
     }
 
@@ -76,7 +76,7 @@ function validate() {
 
 
     if (phoneNumber == '') {
-        document.getElementById('errorphoneNumber').innerHTML = 'Phone Number can't be empty.';
+        document.getElementById('errorphoneNumber').innerHTML = 'Phone Number cannot be empty.';
         return false;
     }
 
