@@ -22,39 +22,46 @@ function validate() {
     }
     if (password.length < 8 ) {
         document.getElementById('errorpassword').innerHTML = 'Password length should be atleast 8.';
+        document.getElementById('password').focus();
         return false;
     }
-    else {
+            else {
         document.getElementById('errorpassword').innerHTML = '';
     }
     if (vpassword.length < 8 ) {
         document.getElementById('errorpasswordVerify').innerHTML = 'Confirm Password length should be atleast 8.';
+        document.getElementById('passwordVerify').focus();
         return false;
     }
-    else {
+        else {
         document.getElementById('errorpasswordVerify').innerHTML = '';
     }
     if (vpassword != password) {
         document.getElementById('errorpasswordVerify').innerHTML = 'Confirm password should be same as Password.';
-        return false;
-    }
+        document.getElementById('passwordVerify').focus();
+                return false;
+            }
     else {
         document.getElementById('errorpasswordVerify').innerHTML = '';
     }
 
     if (!firstname.match(nameFormat)) {
         document.getElementById('errorfirstName').innerHTML = 'Invalid First Name.';
-        return false;
+        document.getElementById('firstName').focus();
+                return false;
     }
-    else {
+    
+        else {
         document.getElementById('errorfirstName').innerHTML = '';
     }
 
     if (!lastname.match(nameFormat)) {
         document.getElementById('errorlastName').innerHTML = 'Invalid Last Name.';
-        return false;
+        document.getElementById('lastName').focus();
+                return false;
     }
-    else {
+    
+        else {
         document.getElementById('errorlastName').innerHTML = '';
     }
  if (email != '') {
@@ -65,19 +72,23 @@ function validate() {
         
         if (email.indexOf(".", 0) < 0) {
             document.getElementById('erroremail').innerHTML = 'Invalid Email format.';
-            return false;
+            document.getElementById('email').focus();
+                        return false;
             }
        }
-    else {
+       
+           else {
         document.getElementById('erroremail').innerHTML = '';
     }
 
   if (phoneNumber != '') {
         if (!phoneNumber.match(phonenoFormat)) {
             document.getElementById('errorphoneNumber').innerHTML = 'Invalid Phone Number.';
-            return false;
+            document.getElementById('phoneNumber').focus();
+                        return false;
         }
-        else {
+        
+                else {
         document.getElementById('errorphoneNumber').innerHTML = '';
     }        
     }
