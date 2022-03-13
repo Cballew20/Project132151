@@ -1,127 +1,185 @@
-let $ = function (id) { return document.getElementById(id); };
-let _ = function (name) { return document.getElementsByName(name); };
-let stringNumberReg = `^[a-zA-Z0-9-]*$`;
-let emailReg = '^\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*(\\.\\w{2,3})+$';
-let phoneReg = '^\\(?([0-9]{3})\\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$';
-let allErrors = [];
+function validate(){
 
 
-const isEmpty = (userString) => {
-    let str = userString.trim().length;
-    return !str;
-};
 
-const isError = (id, message) => {
-    let name = id.replace("Error", "");
-    $(id).innerText = `\u26a0 ${message}`;
-    allErrors.push(_(name)[0]);
+usernameFormat = "^[a-z A-Z0-9]+$"; 
+
+nameFormat = "^[a-z A-Z]+$";
+
+phonenoFormat = "^[1-9][0-9]{9}$";
+
+var username = document.getElementsByName('userName')[0].value;
+
+var password = document.getElementsByName('password')[0].value;
+
+var vpassword = document.getElementsByName('passwordVerify')[0].value;
+
+var firstname = document.getElementsByName('firstName')[0].value;
+
+var lastname = document.getElementsByName('lastName')[0].value;
+
+var email = document.getElementsByName('email')[0].value;
+
+var phoneNumber = document.getElementsByName('phoneNumber')[0].value;
+
+var newsletter = document.getElementsByName('signUpNewsletter');
+
+
+
+if (username == "" ) {
+
+document.getElementById('erroruserName').innerHTML = 'Username can\'t be empty.';
+
+return false;
+
 }
 
-const isValid = (id) => {
-    let name = id.replace("Error", "");
-    let ele = _(name)[0];
 
-    $(id).innerText = "";
 
-    let index = allErrors.indexOf(ele);
-    if (index > -1) {
-        allErrors.splice(index, 1);
-    }
+if(!username.match(usernameFormat) ){
+
+document.getElementById('erroruserName').innerHTML = 'Invalid Username.';
+
+return false;
 
 }
 
-const validateUserName = (userName) => {
-    if (isEmpty(userName)) {
-        isError('userNameError', "You must enter a user name!");
-    } else if (!userName.match(stringNumberReg)) {
-        isError('userNameError', "A user name can only be letters and numbers!");
-    } else {
-        isValid("userNameError");
-    }
+
+
+if(password.length <8 || password==""){
+
+document.getElementById('errorpassword').innerHTML = 'Password length should be atleast 8.';
+
+return false;
+
 }
 
-const validatePassword = (password) => {
-    if (isEmpty(password)) {
-        isError('passwordError', "A password is required!");
-    } else if (password.length < 8) {
-        isError('passwordError', "A password must be greater than 8 characters!");
-    } else {
-        isValid("passwordError");
-    }
+
+
+if(vpassword.length <8 || vpassword==""){
+
+document.getElementById('errorpasswordVerify').innerHTML = 'Confirm Password length should be atleast 8.';
+
+return false;
+
 }
 
-const validateVerify = (verify, password) => {
-    if (isEmpty(verify)) {
-        isError('passwordVerifyError', "You must enter a password!");
-    }
-    else if (verify !== password) {
-        isError('passwordVerifyError', "Your passwords do not match!");
-    } else {
-        isValid('passwordVerifyError');
-    }
+
+
+if(vpassword != password){
+
+document.getElementById('errorpasswordVerify').innerHTML = 'Confirm password should be same as Password.';
+
+return false;
+
 }
 
-const validateFirstName = (firstName) => {
-    if (isEmpty(firstName)) {
-        isError('firstNameError', "A first name is required!");
-    } else {
-        isValid('firstNameError');
-    }
+
+
+if (firstname == '' ) {
+
+document.getElementById('errorfirstName').innerHTML = 'First Name can\'t be empty.';
+
+return false;
+
 }
 
-const validateLastName = (lastName) => {
-        if (isEmpty(lastName)) {
-            isError('lastNameError', "A last name is required!");
-        } else {
-            isValid('lastNameError');
-        }
+
+
+if(!firstname.match(nameFormat) ){
+
+document.getElementById('errorfirstName').innerHTML = 'Invalid First Name.';
+
+return false;
+
 }
 
-const validateEmail = (email) => {
-    if (isEmpty(email)) {
-        isError('emailError', "An email is required!");
-    } else if (!email.match(emailReg) ) {
-        isError('emailError', 'You must enter a valid email!')
 
-    } else {
-        isValid('emailError');
-    }
+
+if (lastname == '' ) {
+
+document.getElementById('errorlastName').innerHTML = 'Last Name can\'t be empty.';
+
+return false;
+
 }
 
-const validatePhone = (phone) => {
-    if (isEmpty(phone)) {
-        isError('phoneNumberError', "A phone number is required!");
-    } else if (!phone.match(phoneReg) ) {
-        isError('phoneNumberError', 'You must enter a valid phone number!')
 
-    } else {
-        isValid('phoneNumberError');
-    }
+
+if(!lastname.match(nameFormat) ){
+
+document.getElementById('errorlastName').innerHTML = 'Invalid Last Name.';
+
+return false;
+
 }
 
-function validateFields(form) {
-        $('validateForm').addEventListener('submit', function (event) {
-            event.preventDefault();
-        });
-
-        allErrors = [];
-
-        validateUserName(form.userName.value);
-        validatePassword(form.password.value);
-        validateVerify(form.passwordVerify.value, form.password.value);
-        validateFirstName(form.firstName.value);
-        validateLastName(form.lastName.value);
-        validateEmail(form.email.value);
-        validatePhone(form.phoneNumber.value);
 
 
-        if (allErrors.length === 0) {
-            getFormData('validateForm');
-            window.location.href = 'confirm.html';
-            return false;
-        } else {
-            allErrors[0].focus();
-            return false;
-        }
+if (email == '' ) {
+
+document.getElementById('erroremail').innerHTML = 'Email can\'t be empty.';
+
+return false;
+
+}
+
+
+
+if (email.indexOf("@", 0) < 0)   
+
+{
+
+document.getElementById('erroremail').innerHTML = 'Invalid Email format.';
+
+return false;
+
+}
+
+
+
+  
+
+if (email.indexOf(".", 0) < 0)   
+
+{
+
+document.getElementById('erroremail').innerHTML = 'Invalid Email format.';
+
+return false;
+
+}
+
+
+
+if (phoneNumber == '' ) {
+
+document.getElementById('errorphoneNumber').innerHTML = 'Phone Number can\'t be empty.';
+
+return false;
+
+}
+
+
+
+if(!phoneNumber.match(phonenoFormat) ){
+
+document.getElementById('errorphoneNumber').innerHTML = 'Invalid Phone Number.';
+
+return false;
+
+}
+
+
+
+if ( ( signUpNewsletter[0].checked == false ) && ( signUpNewsletter[1].checked == false ) ) {
+
+document.getElementById('errorsignUpNewsletter').innerHTML = 'Invalid Phone Number.';
+
+return false;
+
+}
+
+
 
 }
