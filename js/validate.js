@@ -12,81 +12,73 @@ function validate() {
     var signUpNewsletter = document.getElementsByName('signUpNewsletter');
 
 
-
-    if (username == "") {
-        document.getElementById('erroruserName').innerHTML = "Username cannot be empty.";
-        return false;
-    } 
-
     if (!username.match(usernameFormat)) {
         document.getElementById('erroruserName').innerHTML = 'Invalid Username.';
-        return false;
+        document.getElementById('userName').focus();
+                return false;
     }
-
-    if (password.length < 8 || password == "") {
+    else {
+        document.getElementById('erroruserName').innerHTML = '';
+    }
+    if (password.length < 8 ) {
         document.getElementById('errorpassword').innerHTML = 'Password length should be atleast 8.';
         return false;
     }
-
-    if (vpassword.length < 8 || vpassword == "") {
+    else {
+        document.getElementById('errorpassword').innerHTML = '';
+    }
+    if (vpassword.length < 8 ) {
         document.getElementById('errorpasswordVerify').innerHTML = 'Confirm Password length should be atleast 8.';
         return false;
     }
-
+    else {
+        document.getElementById('errorpasswordVerify').innerHTML = '';
+    }
     if (vpassword != password) {
         document.getElementById('errorpasswordVerify').innerHTML = 'Confirm password should be same as Password.';
         return false;
     }
-
-    if (firstname == '') {
-        document.getElementById('errorfirstName').innerHTML = 'First Name cannot be empty.';
-        return false;
+    else {
+        document.getElementById('errorpasswordVerify').innerHTML = '';
     }
 
     if (!firstname.match(nameFormat)) {
         document.getElementById('errorfirstName').innerHTML = 'Invalid First Name.';
         return false;
     }
-
-    if (lastname == '') {
-        document.getElementById('errorlastName').innerHTML = 'Last Name cannot be empty.';
-        return false;
+    else {
+        document.getElementById('errorfirstName').innerHTML = '';
     }
 
     if (!lastname.match(nameFormat)) {
         document.getElementById('errorlastName').innerHTML = 'Invalid Last Name.';
         return false;
     }
-
-    if (email == '') {
-        document.getElementById('erroremail').innerHTML = 'Email cannot be empty.';
-        return false;
+    else {
+        document.getElementById('errorlastName').innerHTML = '';
+    }
+ if (email != '') {
+        if (email.indexOf("@", 0) < 0) {
+            document.getElementById('erroremail').innerHTML = 'Invalid Email format.';
+            return false;
+        }
+        
+        if (email.indexOf(".", 0) < 0) {
+            document.getElementById('erroremail').innerHTML = 'Invalid Email format.';
+            return false;
+            }
+       }
+    else {
+        document.getElementById('erroremail').innerHTML = '';
     }
 
-    if (email.indexOf("@", 0) < 0) {
-        document.getElementById('erroremail').innerHTML = 'Invalid Email format.';
-        return false;
+  if (phoneNumber != '') {
+        if (!phoneNumber.match(phonenoFormat)) {
+            document.getElementById('errorphoneNumber').innerHTML = 'Invalid Phone Number.';
+            return false;
+        }
+        else {
+        document.getElementById('errorphoneNumber').innerHTML = '';
+    }        
     }
-
-    if (email.indexOf(".", 0) < 0) {
-        document.getElementById('erroremail').innerHTML = 'Invalid Email format.';
-        return false;
-    }
-
-
-
-    if (phoneNumber == '') {
-        document.getElementById('errorphoneNumber').innerHTML = 'Phone Number cannot be empty.';
-        return false;
-    }
-
-    if (!phoneNumber.match(phonenoFormat)) {
-        document.getElementById('errorphoneNumber').innerHTML = 'Invalid Phone Number.';
-        return false;
-    }
-
-    if ((signUpNewsletter[0].checked == false) && (signUpNewsletter[1].checked == false)) {
-        document.getElementById('errorsignUpNewsletter').innerHTML = 'Invalid Phone Number.';
-        return false;
-    }
-}
+ 
