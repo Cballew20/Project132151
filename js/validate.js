@@ -92,6 +92,7 @@ function validate() {
         document.getElementById('errorphoneNumber').innerHTML = '';
     }        
     }
+}
     function GetPassedInParameters() {
         "use strict"
         
@@ -132,4 +133,4 @@ function GetPassedInParametersFromCookie() {
 }
     
     
- }
+ 
