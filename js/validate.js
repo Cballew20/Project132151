@@ -92,4 +92,37 @@ function validate() {
         document.getElementById('errorphoneNumber').innerHTML = '';
     }        
     }
+    function GetPassedInParameters() {
+        "use strict"
+        
+        var userName = getUrlParameter("userName");
+        var password = getUrlParameter("password");
+        var passwordVerify = getUrlParameter("passwordVerify");
+        var firstName = getUrlParameter("firstName");
+        var lastName = getUrlParameter("lastName");
+        var email = getUrlParameter("email");
+        var phoneNumber = getUrlParameter("phoneNumber");
+        var signUpNewsletter = getUrlParameter("signUpNewsletter");
+    
+    document.cookie = "userName" + userName + ";";
+    document.cookie = "password" + password + ";";
+    document.cookie = "passwordVerify" + passwordVerify + ";";
+    document.cookie = "firstName" + firstName + ";";
+    document.cookie = "lastName" + lastName + ";";
+    document.cookie = "email" + email + ";";
+    document.cookie = "phoneNumber" + phoneNumber + ";"
+    document.cookie = "signUpNewsletter" + signUpNewsletter + ";";
+    
+    GetPassedInParametersFromCookie();
+    }
+    
+function GetPassedInParametersFromCookie() {
+    
+    var x = document.cookie;
+    
+    document.getElementById('node-id').innerHTML = x;
+
+}
+    
+    
  }
